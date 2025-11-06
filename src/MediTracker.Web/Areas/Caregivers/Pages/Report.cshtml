@@ -1,0 +1,55 @@
+﻿@page
+@model MediTracker.Web.Areas.Caregivers.Pages.ReportModel
+@{
+    ViewData["Title"] = "Caregiver Mgmt - Report";
+}
+
+<h2>@Model.Report.Email Report</h2>
+
+<hr />
+<h3>Trends</h3>
+@* <script src="~/lib/chartjs/dist/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ *@<canvas id="myChart" width="400" height="200"></canvas>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar'],
+            datasets: [{
+                label: 'Sales',
+                data: [120, 150, 100],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            }]
+        }
+    });
+</script>
+
+<h3>Dose History</h3>
+@if (Model.Report.Doses != null && Model.Report.Doses.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Medication</th>
+                <th>Taken At</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Report.Doses)
+            {
+                <tr>
+                    <td>@product.MedicationName</td>
+                    <td>@product.TakenAt</td>
+                    <td>@product.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No dose history</p>
+}

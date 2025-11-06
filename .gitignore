@@ -1,0 +1,9 @@
+/src/MediTracker.Business/bin
+/src/MediTracker.Business/obj
+src/MediTracker.Web/appsettings.json
+src/MediTracker.Web/appsettings.Development.json
+/src/MediTracker.Web/bin
+/src/MediTracker.Web/Data/Migrations
+*.user
+/src/MediTracker.Web/obj
+/src/node_modules

@@ -1,0 +1,37 @@
+﻿@page
+@model MediTracker.Web.Areas.Medications.Pages.EditMedicationModel
+@{
+    ViewData["Title"] = "My Medications - Edit";
+}
+
+<h2>Add a new medication or supplement</h2>
+
+<form method="post" asp-page="/NewMedication">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Medication.UserId)
+    @Html.HiddenFor(model => model.Medication.Id)
+    <div>
+        <label>Name:</label>
+        @Html.TextBoxFor(model => model.Medication.Name)
+    </div>
+    <div>
+        <label>Description</label>
+        @Html.TextAreaFor(model => model.Medication.Description)
+    </div>
+    <div>
+        <label>Dose Frequency:</label>
+        @Html.DropDownListFor(model => model.Medication.DoseFrequency, Model.FrequencyOptions)
+    </div>
+    <div>
+        <label>Need Reminder?</label>
+        @Html.CheckBoxFor(model => model.Medication.NeedReminder)
+    </div>
+    <div style="padding-top:5px;">
+        <button style="border: 1px solid black; padding: 2px;width:75px;background-color:transparent;" type="submit">Save</button>
+        <button style="border: 1px solid black; padding: 2px;width:75px;background-color:transparent;" type="reset">Reset</button>
+        <a href="~/Medications/Index" style="border: 1px solid black; padding: 2px;width:75px;text-decoration:none;color:black">Back</a>
+    </div>
+</form>
+
+<partial name="_ValidationScriptsPartial" />
+<validation-summary></validation-summary>

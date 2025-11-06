@@ -1,0 +1,39 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <img src="~/images/logo.png" style="width:25%;height:25%" />
+    <div class="text-body" style="text-align:left;">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non leo tincidunt nisl sodales consequat. Sed vestibulum, lacus id venenatis commodo, risus lacus vulputate massa, ac hendrerit nibh tellus quis ante. Pellentesque id pellentesque arcu. Vivamus finibus mauris quis augue fringilla, ac porta nisi scelerisque. Praesent et ipsum malesuada, bibendum tellus ac, malesuada ipsum. Sed lectus enim, lacinia sed vehicula ut, convallis non tortor. Nullam nunc turpis, gravida eget purus nec, pharetra gravida leo. Proin pretium nibh quis feugiat efficitur.
+        </p>
+        <p>
+            Donec congue arcu quis metus iaculis vestibulum. Quisque in dui eget ante tristique porta. Maecenas fringilla gravida dui, non molestie magna lacinia et. Sed dolor purus, condimentum in quam id, fermentum scelerisque sem. Morbi consequat arcu ac magna vestibulum lacinia. Aenean a metus gravida, mollis dui in, tempor turpis. Vestibulum mattis mauris nunc, at ultrices tellus vulputate non. Etiam aliquet nibh sem. Donec ligula diam, mattis in eleifend id, tempus at nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent non laoreet mauris, a maximus enim.
+        </p>
+        <p>
+            Vivamus cursus et eros eu rhoncus. Suspendisse suscipit nulla neque, auctor interdum dolor dictum et. In lorem augue, ornare at odio non, dignissim placerat velit. Donec non dapibus nunc. Nam id lectus venenatis, ultrices ante eu, facilisis velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer placerat dignissim leo, ut convallis mauris commodo luctus. Aliquam eget tellus a purus ultricies posuere sed non dui. Maecenas egestas tellus quis elit scelerisque auctor. Morbi venenatis sem quis finibus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p>
+            Mauris non sapien ligula. Nulla eget condimentum urna. Fusce est elit, pulvinar eget ex sit amet, accumsan faucibus ligula. Sed efficitur euismod ligula auctor lacinia. Etiam aliquet diam et nulla euismod faucibus. Nam non porta orci. Aenean tristique varius mauris, nec faucibus enim mattis maximus. Proin maximus interdum orci, a facilisis ex tempor at. Nunc sed diam in enim posuere tempus et ac ipsum. Cras ornare vel nisl a eleifend. Cras sagittis posuere auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse egestas eros nisi, sed pharetra orci varius eu.
+        </p>
+    </div>
+
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <div style="text-align:center;width:100%">
+            <a asp-area="Identity" asp-page="/Account/Register" style="border: 1px solid black; padding: 2px;width:75px">Sign-up</a>
+        </div>
+    }else
+    {
+        <div style="text-align:center;width:100%">
+            <a asp-area="Medications" asp-page="/Index" style="border: 1px solid black; padding: 2px;width:75px; font-size:1.5em">Go to Medications</a>
+        </div>
+
+    }
+</div>

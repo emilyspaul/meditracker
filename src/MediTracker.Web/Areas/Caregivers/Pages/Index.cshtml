@@ -1,0 +1,73 @@
+﻿@page
+@using MediTracker.Business
+@model MediTracker.Web.Areas.Caregivers.Pages.IndexModel
+@{
+    ViewData["Title"] = "Caregiver Mgmt";
+}
+
+<h2>Caregiver Management</h2>
+
+<h3>My Authorized Caregivers</h3>
+@if (Model.Caregivers != null && Model.Caregivers.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Has Access?</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Caregivers)
+            {
+                <tr>
+                    <td>@product.Email</td>
+                    <td>@product.HasFullAccess.GetYesNo()</td>
+                    <td>
+                        <a href="~/Caregivers/EditCaregiver?id=@product.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No caregivers configured</p>
+}
+<div style="text-align:center;width:100%">
+    <a href="~/Caregivers/NewCaregiver" style="border: 1px solid black; padding: 2px;width:75px;text-decoration:none;color:black">Add</a>
+</div>
+
+<hr />
+
+<h3>Shared with Me</h3>
+@if (Model.Shared != null && Model.Shared.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Has Access?</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Shared)
+            {
+                <tr>
+                    <td>@product.Email</td>
+                    <td>@product.HasFullAccess.GetYesNo()</td>
+                    <td>
+                        <a href="~/Caregivers/Report?id=@product.CaregiverId">View</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No shared data available</p>
+}

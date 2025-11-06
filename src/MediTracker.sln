@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediTracker.Web", "MediTracker.Web\MediTracker.Web.csproj", "{6DB13FD0-6255-4BBD-9E15-42661E21A05A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediTracker.Business", "MediTracker.Business\MediTracker.Business.csproj", "{B0DE975D-A49C-4D0F-BBF1-5857E0099CEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DB13FD0-6255-4BBD-9E15-42661E21A05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB13FD0-6255-4BBD-9E15-42661E21A05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB13FD0-6255-4BBD-9E15-42661E21A05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB13FD0-6255-4BBD-9E15-42661E21A05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DE975D-A49C-4D0F-BBF1-5857E0099CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DE975D-A49C-4D0F-BBF1-5857E0099CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DE975D-A49C-4D0F-BBF1-5857E0099CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DE975D-A49C-4D0F-BBF1-5857E0099CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4444BE10-9F6F-4D93-9E1C-A9A863E60BD5}
+	EndGlobalSection
+EndGlobal

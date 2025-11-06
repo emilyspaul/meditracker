@@ -1,0 +1,34 @@
+﻿@page
+@model MediTracker.Web.Areas.Reports.Pages.HistoryModel
+@{
+    ViewData["Title"] = "Reports - My History";
+}
+
+<h3>Medication History - Have I taken my meds?</h3>
+
+@if (Model.DoseHistory != null && Model.DoseHistory.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Medication</th>
+                <th>Taken At</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.DoseHistory)
+            {
+                <tr>
+                    <td>@product.MedicationName</td>
+                    <td>@product.TakenAt</td>
+                    <td>@product.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Go take your meds and/or supplements, man!</p>
+}

@@ -1,0 +1,33 @@
+﻿@page
+@model MediTracker.Web.Areas.Medications.Pages.DoseModel
+@{
+    ViewData["Title"] = "Dose Mgmt";
+}
+
+<h3>Enter a dose</h3>
+
+<form method="post" asp-page="/Dose">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Dose.UserId)
+    @Html.HiddenFor(model => model.Dose.Id)
+    <div>
+        <label>Amount:</label>
+        @Html.TextBoxFor(model => model.Dose.Amount)
+    </div>
+    <div>
+        <label>Taken at?</label>
+        @Html.TextBoxFor(model => model.Dose.TakenAt)
+    </div>
+    <div>
+        <label>Medication:</label>
+        @Html.DropDownListFor(model => model.Dose.MedicationId, Model.Medications)
+    </div>
+    <div style="padding-top:5px;">
+        <button style="border: 1px solid black; padding: 2px;width:75px;background-color:transparent;" type="submit">Save</button>
+        <button style="border: 1px solid black; padding: 2px;width:75px;background-color:transparent;" type="reset">Reset</button>
+        <a href="~/Index" style="border: 1px solid black; padding: 2px;width:75px;text-decoration:none;color:black">Cancel</a>
+    </div>
+</form>
+
+<partial name="_ValidationScriptsPartial" />
+<validation-summary></validation-summary>

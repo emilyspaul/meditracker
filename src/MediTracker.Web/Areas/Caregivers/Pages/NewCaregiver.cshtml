@@ -1,0 +1,28 @@
+﻿@page
+@model MediTracker.Web.Areas.Caregivers.Pages.NewCaregiverModel
+@{
+    ViewData["Title"] = "Caregiver Mgmt - Add";
+}
+
+<h2>Authorize a new caregiver</h2>
+
+<form method="post" asp-page="/NewCaregiver">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Caregiver.UserId)
+    <div>
+        <label>Email:</label>
+        @Html.TextBoxFor(model => model.Caregiver.Email)
+    </div>
+    <div>
+        <label>Give Access?</label>
+        @Html.CheckBoxFor(model => model.Caregiver.HasFullAccess)
+    </div>
+    <div style="padding-top:5px;">
+        <button style="border: 1px solid black; padding: 2px;width:75px;background-color:transparent;" type="submit">Save</button>
+        <button style="border: 1px solid black; padding: 2px;width:75px;background-color:transparent;" type="reset">Reset</button>
+        <a href="~/Caregivers/Index" style="border: 1px solid black; padding: 2px;width:75px;text-decoration:none;color:black">Back</a>
+    </div>
+</form>
+
+<partial name="_ValidationScriptsPartial" />
+<validation-summary></validation-summary>

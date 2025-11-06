@@ -1,0 +1,43 @@
+﻿@page
+@using MediTracker.Business
+@model MediTracker.Web.Areas.Medications.Pages.IndexModel
+@{
+    ViewData["Title"] = "My Medications";
+}
+
+<h2>Medications/Supplements</h2>
+@if (Model.Medications != null && Model.Medications.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Dose Frequency</th>
+                <th>Reminder?</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Medications)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.DoseFrequency.GetDescription()</td>
+                <td>@product.NeedReminder.GetYesNo()</td>
+                <td>
+                    <a href="~/Medications/EditMedication?id=@product.Id">Edit</a> | 
+                    <a href="~/Medications/Dose?medicationId=@product.Id">Enter Dose</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No medications configured</p>
+}
+
+<div style="text-align:center;width:100%">
+    <a href="~/Medications/NewMedication" style="border: 1px solid black; padding: 2px;width:75px;text-decoration:none;color:black">Add</a>
+</div>
